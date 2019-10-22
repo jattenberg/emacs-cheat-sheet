@@ -1,0 +1,240 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cheatsheet
+% LaTeX Template
+% Version 1.0 (12/12/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Michael Müller (https://github.com/cmichi/latex-template-collection) with
+% extensive modifications by Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{scrartcl} % 11pt font size
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
+
+\usepackage{graphicx} % Required for including images
+
+\usepackage{color} % Required for color customization
+\definecolor{mygray}{gray}{.75} % Custom color
+
+\usepackage{url} % Required for the \url command to easily display URLs
+
+\usepackage{amsmath,amssymb,stmaryrd}
+
+\usepackage[ % This block contains information used to annotate the PDF
+colorlinks=false, 
+pdftitle={Emacs Tips}, 
+pdfauthor={Josh Attenberg}, 
+pdfsubject={A selection of useful emacs tips}, 
+pdfkeywords={Emacs, Cheatsheet, Clojure}
+]{hyperref}
+
+\setlength{\unitlength}{1mm} % Set the length that numerical units are measured in
+\setlength{\parindent}{0pt} % Stop paragraph indentation
+
+\renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
+
+\newcommand{\command}[2]{#1~\dotfill{}~#2\\} % Custom command for adding a shorcut
+
+\newcommand{\sectiontitle}[1]{\paragraph{#1} \ \\} % Custom command for subsection titles
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{picture}(297,210) % Create a container for the page content
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%----------------------------------------------------------------------------------------
+
+\put(10,200){ % Position on the page to put the title
+\begin{minipage}[t]{210mm} % The size and alignment of the title
+\section*{Emacs Shortcuts and Useful Commands} % Title
+\end{minipage}
+}
+
+%----------------------------------------------------------------------------------------
+%	FIRST COLUMN SPECIFICATION
+%----------------------------------------------------------------------------------------
+
+\put(10,180){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+
+%----------------------------------------------------------------------------------------
+%	HEADING ONE
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{Window Management}
+			
+\texttt{C} = Ctrl key\
+\texttt{M} = meta key (usually escape)\
+
+\command{\texttt{C-x + o}}{Switch active window, move cursor to another window}
+\command{\texttt{C-x + 1}}{Close all other windows, leaving only the active window open. (doesn't close buffers or lose work)}
+\command{\texttt{C-x + 2}}{Split window above \& below}
+\command{\texttt{C-x + 3}}{Split window left and right}
+\command{\texttt{C-x + 0}}{Close current window}
+
+%----------------------------------------------------------------------------------------
+%	HEADING TWO
+%----------------------------------------------------------------------------------------				
+			
+\sectiontitle{Files \& Buffers}
+			
+\command{\texttt{C-x C-f}}{Open a file}
+\command{\texttt{C-x C-s}}{Safe a buffer to a file}
+\command{\texttt{C-x b}}{Switch or open buffer}
+
+%----------------------------------------------------------------------------------------
+%	HEADING THREE
+%----------------------------------------------------------------------------------------	
+
+\sectiontitle{Movement}
+
+\command{\texttt{C-a}}{Move to the beginning of the line}
+\command{\texttt{M-m}}{Move to the first non-whitespace character in the line}
+\command{\texttt{C-e}}{Move to the end of the line}
+\command{\texttt{C-f}}{Move forward one character}
+\command{\texttt{C-b}}{Move backward one character}
+\command{\texttt{C-a}}{Move to the beginning of the line}
+\command{\texttt{M-f}}{Move forward one word}
+\command{\texttt{M-b}}{Move backward one word}
+\command{\texttt{C-s}}{Regex search within the current buffer, move to matches (\texttt{C-s} again to move to subsequent matches}
+\command{\texttt{C-r}}{Same as \texttt{C-s} but searches in reverse}
+\command{\texttt{M-<}}{Move to the beginning of the buffer}
+\command{\texttt{M->}}{Move to the end of the buffer}
+\command{\texttt{M-g g}}{Go to the specified line number}
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % End the first column of text
+} % End the first division of the page
+
+%----------------------------------------------------------------------------------------
+%	SECOND COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+
+\put(105,180){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+
+%----------------------------------------------------------------------------------------
+%	HEADING FOUR
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{Kill Ring}
+
+\command{\texttt{C-space}}{Set a mark denoting the beginning of a region}
+\command{\texttt{M-w}}{Copy highlighted region to kill ring}
+\command{\texttt{C-w}}{Cut (kill) highlighted region to kill ring (removing from buffer}
+\command{\texttt{C-k}}{Cut the entire line after the cursor to the kill ring}
+\command{\texttt{M-b}}{Cut word after cursor to the kill ring}
+\command{\texttt{C-y}}{Paste (yank) contents of the kill ring to the buffer}
+\command{\texttt{M-y}}{Cycle through the contents of the kill ring}
+
+%----------------------------------------------------------------------------------------
+%	HEADING FIVE
+%----------------------------------------------------------------------------------------				
+					
+\sectiontitle{Editing} % Heading five
+
+\command{\texttt{Tab}}{Indent line}
+\command{\texttt{C-j}}{Create a new line and then indent}
+\command{\texttt{M-/}}{Cycles through all expansions of the text before this point}
+\command{\texttt{M-\textbackslash}}{Delete all spaces and tabs around this point}
+
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{Help} % Heading six
+
+\command{\texttt{C-h k (key binding)}}{describe the function bound to the specified key binding}
+\command{\texttt{C-h f}}{Describe function}
+
+%----------------------------------------------------------------------------------------
+
+
+\end{minipage} % End the second column of text
+} % End the second division of the page
+
+%----------------------------------------------------------------------------------------
+%	THIRD COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+
+\put(200,180){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house tex
+
+%----------------------------------------------------------------------------------------
+%	Clojure
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{\texttt{cider}}
+Open with: \texttt{M-x cider-jack-in}\\
+see: \url{https://github.com/clojure-emacs/cider}
+
+\command{\texttt{C-x C-e}}{Evaluate the preceding command}
+\command{\texttt{C-u C-x C-e}}{Evaluate the preceding command, print results after the cursor in the current buffer}
+\command{\texttt{C-c M-n}}{Switch to the namespace of the current buffer}
+\command{\texttt{C-c C-k}}{Compile the current buffer}
+\command{\texttt{M-.} and \texttt{M-,}}{Navigate to source code for the symbol under point and return to the original buffer}
+\command{\texttt{C-c C-d C-a}}{Find arbitrary text across function names and documentation}
+\command{\texttt{C-up} and \texttt{C-down}}{Navigate through repl history}
+\command{\texttt{C-enter}}{Close parens and evaluate}
+
+
+
+\vspace{\baselineskip} % Whitespace before the next section
+
+%----------------------------------------------------------------------------------------
+%	LINKS AND INFORMATION
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{Links and information}
+
+\url{https://github.com/clojure-emacs/cider}
+
+\url{https://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs8.png}
+
+\url{https://www.gnu.org/software/emacs/manual/html_node/emacs/}
+
+\url{https://www.masteringemacs.org/reading-guide}
+
+\url{https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf}
+
+%----------------------------------------------------------------------------------------
+%	FOOTNOTE
+%----------------------------------------------------------------------------------------
+
+\vspace{\baselineskip}
+\linethickness{0.5mm} % Thickness of the footer line
+{\color{mygray}\line(1,0){30}} % Print the line with a custom color
+
+\footnotesize{
+Created by Josh Attenberg, 2019\\ 
+\url{https://github.com/jattenberg/emacs-cheat-sheet}\\
+				
+Released under the MIT license.
+}
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % End the third column of text
+} % End the third division of the page
+\end{picture} % End the container for the entire page
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
